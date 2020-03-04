@@ -1,0 +1,15 @@
+.sorting_desc:after,sorting_asc:after{
+    display: inline;
+}
+.sorting_desc:after{
+    content: ' ↑';
+}
+.sorting_asc:after{
+    content: ' ↓';
+}
+.align-right{
+    text-align: right;
+}
+.login{
+    padding-bottom: 1em;
+}
