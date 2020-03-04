@@ -49,9 +49,9 @@ class Model_task extends Model{
     public function set_data(){
         $query = "INSERT INTO tasks (uname, email, task) VALUES (?, ?, ?)";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(1, htmlspecialchars($_POST['uname'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
-        $stmt->bindParam(2, htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
-        $stmt->bindParam(3, htmlspecialchars($_POST['task'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
+        $stmt->bindParam(1, $_POST['uname'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $_POST['email'], PDO::PARAM_STR);
+        $stmt->bindParam(3, $_POST['task'], PDO::PARAM_STR);
         return $stmt->execute();
     }
 
@@ -70,12 +70,12 @@ class Model_task extends Model{
             $query = "UPDATE tasks SET uname=?, email=?, task=?, edited=?, completed=? WHERE id=?";
 
             $stmt = $this->pdo->prepare($query);
-            $stmt->bindParam(1, htmlspecialchars($_POST['uname'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
-            $stmt->bindParam(2, htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
-            $stmt->bindParam(3, htmlspecialchars($_POST['task'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_STR);
-            $stmt->bindParam(4, htmlspecialchars($_POST['edited'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_INT);
-            $stmt->bindParam(5, htmlspecialchars($_POST['completed'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_INT);
-            $stmt->bindParam(6, htmlspecialchars($_POST['id'], ENT_QUOTES, 'UTF-8'), PDO::PARAM_INT);
+            $stmt->bindParam(1, $_POST['uname'], PDO::PARAM_STR);
+            $stmt->bindParam(2, $_POST['email'], PDO::PARAM_STR);
+            $stmt->bindParam(3, $_POST['task'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $_POST['edited'], PDO::PARAM_INT);
+            $stmt->bindParam(5, $_POST['completed'], PDO::PARAM_INT);
+            $stmt->bindParam(6, $_POST['id'], PDO::PARAM_INT);
 
             return $stmt->execute();
 
